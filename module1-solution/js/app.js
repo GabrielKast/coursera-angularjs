@@ -9,7 +9,7 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope){
     $scope.menu = "";
     $scope.message = "";
-    $scope.messageClass = "";
+    $scope.messageStyle = "";
     $scope.evaluateLunch = EvaluateLunch;
     function EvaluateLunch(){
         var items = $scope.menu;
@@ -25,13 +25,13 @@ function LunchCheckController($scope){
         }
         if (nbOfDishes === 0) {
           $scope.message = "Please enter data first";
-          $scope.messageClass = "message-danger";
+          $scope.messageStyle = {'border': '#a94442 solid 3px', 'border-radius':'4px'};
         } else if (nbOfDishes>3) {
           $scope.message = "Too much!";
-          $scope.messageClass = "message-success";
+          $scope.messageStyle = {'border': '#3c763d solid 3px', 'border-radius':'4px'};
         } else {
           $scope.message = "Enjoy!";
-          $scope.messageClass = "message-success";
+          $scope.messageStyle = {'border': '#3c763d solid 3px', 'border-radius':'3px'};
         }
     }
 }
