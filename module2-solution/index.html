@@ -44,7 +44,7 @@
 	    </li>
 	  </ul>
 	  <div class="emptyMessage"
-	       ng-if="! toBuy.list.length">
+	       ng-if="toBuy.isEmptyList()">
 	    {{ toBuy.messages.empty }}
 	  </div>
 	</div>
@@ -59,8 +59,11 @@
 	      Bought {{item.quantity}} {{item.name}}
 	    </li>
 	  </ul>
+	    {{alreadybought.emptylist() }}
 	  <div class="emptyMessage"
-	       ng-if="! alreadyBought.list.length">{{alreadyBought.messages.empty}}</div>
+	       ng-if=" alreadyBought.isEmptyList()">
+	    {{alreadyBought.messages.empty}}
+	  </div>
 	</div>
       </div>
     </div>
