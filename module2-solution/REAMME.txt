@@ -1,0 +1,1 @@
+My solution for the asignment2 of the sweet Angularjs course by Coursera
