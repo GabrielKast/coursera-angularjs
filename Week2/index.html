@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>body { font-size: 1.3em; }</style>
+    <title>My Scratch</title>
+  </head>
+  <body ng-app="Scratch">
+    <h1>Name Calculator</h1>
+    <div ng-controller="ScratchController">
+      <div>
+        {{msg | custom : "??" | uppercase}} <br>
+        {{message}}
+      </div>
+    </div>
+  </body>
+</html>
