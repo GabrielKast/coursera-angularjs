@@ -40,7 +40,6 @@
 					var foundItems = [],
 						searchTerm = searchTermRaw.toLowerCase(),
 						menu_items = response.data.menu_items;
-					console.log(response);
 					// Here check if data and menu_items are empty
 					for (var i=0; i<menu_items.length; i++) {
 						var item = menu_items[i],
