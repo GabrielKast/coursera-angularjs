@@ -5,24 +5,24 @@
 		.controller("NarrowItDownController", NarrowItDownController)
 		.service("MenuSearchService", MenuSearchService)
 		.directive("foundItems", FoundItemsDirective)
-//		.controller("FoundItemsDirectiveController", FoundItemsDirectiveController)
-	;
+		.directive("itemsLoaderIndicator", ItemsLoaderIndicator);
 
 	NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
 	function NarrowItDownController($scope, MenuSearchService){
 		var controller = this;
-		controller.searchTerm = "soup";
-		controller.found = []
+		controller.searchTerm = "";
+		controller.found = [];
+		controller.somethingToShow = false;
 		controller.getMatchedMenuItems = function(){
 			var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
 			promise.then(function(foundItems){
 				controller.found = foundItems;
+				controller.somethingToShow = true;
 			});
 		}
 		controller.removeItem = function (itemIndex) {
 			controller.found.splice(itemIndex, 1);
 		};
-
 	}
 
 	MenuSearchService.$inject = ['$http'];
@@ -63,9 +63,9 @@
 			templateUrl : 'foundItems.html',
 			scope : {
 				foundItems: '<',
+				somethingToShow: '<',
 				removeItem: '&onRemove'
 			},
-			// controller: 'ShoppingListDirectiveController as list',
 			controller: FoundItemsDirectiveController,
 			controllerAs: 'list',
 			bindToController: true
@@ -73,5 +73,22 @@
 		return ddo;
 	}
 	function FoundItemsDirectiveController(){
+		var controller = this;
+		controller.emptyList = function (){
+			return controller.foundItems.length===0;
+		};
+	}
+
+	function ItemsLoaderIndicator(){
+		return {
+			restrict: 'E',
+			templateUrl : 'itemsLoaderIndicator.html',
+			controller: ItemsLoaderIndicatorController,
+			controllerAs: 'loader',
+			bindToController: true
+		};
+	}
+	// ItemsLoaderIndicatorController.$inject(['MenuSearchService'])
+	function ItemsLoaderIndicatorController(){
 	}
 })();
