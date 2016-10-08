@@ -58,7 +58,7 @@
 					return foundItems;
 				},
 				function error(response) {
-					alert(response);
+					alert("error message: " + errorResponse.message);
 				}
 			);
 		}
