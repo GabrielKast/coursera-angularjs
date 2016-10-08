@@ -13,11 +13,14 @@
 		controller.searchTerm = "";
 		controller.found = [];
 		controller.somethingToShow = false;
+		controller.loading = false;
 		controller.getMatchedMenuItems = function(){
+			controller.loading = true;
 			var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
 			promise.then(function(foundItems){
 				controller.found = foundItems;
 				controller.somethingToShow = true;
+				controller.loading = false;
 			});
 		}
 		controller.removeItem = function (itemIndex) {
@@ -82,12 +85,9 @@
 		return {
 			restrict: 'E',
 			templateUrl : 'itemsLoaderIndicator.html',
-			controller: ItemsLoaderIndicatorController,
-			controllerAs: 'loader',
-			bindToController: true
+			scope: {
+				loading:'<'
+			}
 		};
-	}
-	// ItemsLoaderIndicatorController.$inject(['MenuSearchService'])
-	function ItemsLoaderIndicatorController(){
 	}
 })();
