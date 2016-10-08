@@ -15,13 +15,19 @@
 		controller.somethingToShow = false;
 		controller.loading = false;
 		controller.getMatchedMenuItems = function(){
-			controller.loading = true;
-			var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
-			promise.then(function(foundItems){
-				controller.found = foundItems;
-				controller.somethingToShow = true;
-				controller.loading = false;
-			});
+			controller.somethingToShow = true;
+			var term = controller.searchTerm.trim();
+			if (term!=="") {
+				controller.loading = true;
+				var promise = MenuSearchService.getMatchedMenuItems(term);
+				promise.then(function(foundItems){
+					controller.found = foundItems;
+					controller.somethingToShow = true;
+					controller.loading = false;
+				});
+			} else {
+				controller.found = [];
+			}
 		}
 		controller.removeItem = function (itemIndex) {
 			controller.found.splice(itemIndex, 1);
