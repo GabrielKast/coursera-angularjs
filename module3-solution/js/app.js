@@ -49,9 +49,8 @@
 					// Here check if data and menu_items are empty
 					for (var i=0; i<menu_items.length; i++) {
 						var item = menu_items[i],
-							name = item.name.toLowerCase(),
 							description = item.description.toLowerCase();
-						if (name.indexOf(searchTerm)>=0 || description.indexOf(searchTerm)>=0) {
+						if (description.indexOf(searchTerm)>=0) {
 							foundItems.push(item);
 						}
 					}
