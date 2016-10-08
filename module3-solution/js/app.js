@@ -63,7 +63,6 @@
 			templateUrl : 'foundItems.html',
 			scope : {
 				foundItems: '<',
-				somethingToShow: '<',
 				removeItem: '&onRemove'
 			},
 			controller: FoundItemsDirectiveController,

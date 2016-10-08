@@ -23,9 +23,10 @@
     <items-loader-indicator></items-loader-indicator>
 
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="narrowItDown.found"
-                 on-remove="narrowItDown.removeItem(index)"
-                 something-to-show="narrowItDown.somethingToShow"></found-items>
+       <div  ng-if="narrowItDown.somethingToShow">
+           <found-items found-items="narrowItDown.found"
+                        on-remove="narrowItDown.removeItem(index)"></found-items>
+       </div>
   </div>
 
 </body>
