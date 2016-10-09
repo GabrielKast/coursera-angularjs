@@ -6,9 +6,8 @@
         {
             templateUrl: 'src/menu/templates/items.template.html',
             bindings: {
-                menu_items: '<',
+                menuItems: '<',
                 category: '<'
             }
         });
-}
-)();
+})();

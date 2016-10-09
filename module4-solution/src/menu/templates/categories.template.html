@@ -1,13 +1,12 @@
-
 <div class="col-md-4">
     <ul class="list-group">
-        <li ng-repeat="category in categories.items"
+        <li ng-repeat="category in $ctrl.items"
             class="list-group-item">
             <span  ui-sref="items({categoryShortName: category.short_name})"
                    class="menu-link">
             {{category.name}}
             </span>
-            <button ui-sref="categories.detail({categoryId: category.id})"
+            <button ui-sref="$ctrl.detail({categoryId: category.id})"
                     class="btn btn-info pull-right">More Details</button>
         </li>
     </ul>
