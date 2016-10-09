@@ -43,7 +43,7 @@
             // Category detail page
               .state('items', {
                 url: '/categories/{categoryShortName}',
-                templateUrl: 'src/menu/templates/items.html',
+                template: '<items menu-items="itemsDetail.menu_items" category="itemsDetail.category"></items>',
                 controller: 'ItemsController as itemsDetail',
                 resolve: {
                     items: ['$stateParams', 'MenuDataService',
