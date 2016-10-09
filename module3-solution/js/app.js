@@ -15,18 +15,24 @@
 		controller.somethingToShow = false;
 		controller.loading = false;
 		controller.getMatchedMenuItems = function(){
-			controller.somethingToShow = true;
 			var term = controller.searchTerm.trim();
 			if (term!=="") {
 				controller.loading = true;
 				var promise = MenuSearchService.getMatchedMenuItems(term);
-				promise.then(function(foundItems){
-					controller.found = foundItems;
-					controller.somethingToShow = true;
-					controller.loading = false;
-				});
+				promise.then(
+					function(foundItems){
+						controller.found = foundItems;
+						controller.loading = false;
+					},
+					function error(errorResponse) {
+						alert("error message: " + errorResponse.message);
+					})
+					.finally(function(){
+						controller.somethingToShow = true;
+					});
 			} else {
 				controller.found = [];
+				controller.somethingToShow = true;
 			}
 		}
 		controller.removeItem = function (itemIndex) {
@@ -56,9 +62,6 @@
 					}
 					// return processed items
 					return foundItems;
-				},
-				function error(errorResponse) {
-					alert("error message: " + errorResponse.message);
 				}
 			);
 		}
