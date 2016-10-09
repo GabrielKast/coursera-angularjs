@@ -57,7 +57,7 @@
 					// return processed items
 					return foundItems;
 				},
-				function error(response) {
+				function error(errorResponse) {
 					alert("error message: " + errorResponse.message);
 				}
 			);
