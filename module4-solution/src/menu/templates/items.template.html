@@ -1,0 +1,18 @@
+<div class="row">
+    <a ui-sref="categories">Back to categories</a>
+</div>
+<h3>Category {{itemsDetail.category.name}}</h3>
+<ul class="list-group col-md-6 row">
+    <li ng-repeat="item in itemsDetail.menu_items"
+            class="list-group-item">
+
+        <div><strong>{{item.name}}</strong> ({{item.short_name}})</div>
+        <div>{{item.description}}</div>
+        <div ng-if="item.price_small !== null || item.small_portion_name !== null">
+            <strong>Small portion : </strong> {{item.small_portion_name}} for {{item.price_small}}
+        </div>
+        <div ng-if="item.price_large !== null || item.large_portion_name !== null">
+            <strong>large portion : </strong> {{item.large_portion_name}} for {{item.price_large}}
+        </div>
+    </li>
+</ul>
