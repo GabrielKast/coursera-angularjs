@@ -3,7 +3,7 @@
 
     angular.module('data')
         .service('MenuDataService', MenuDataService)
-        .constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+        .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
         .constant("loadingEventName", 'spinner:activate');
 
     MenuDataService.$inject = ['$http', '$rootScope', 'ApiBasePath', 'loadingEventName'];
