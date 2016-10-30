@@ -111,10 +111,9 @@
             <div class="form-group col-sm-6">
             <button
                     ng-disabled="signupForm.$invalid"
-                    ng-click="ctrl.checkFavourite()">Submit</button>
+                    ng-click="ctrl.saveUser()">Submit</button>
             </div>
         </div>
-
-
+        <div ng-if="ctrl.userSaved">Your information has been saved</div>
     </form>
 </div>

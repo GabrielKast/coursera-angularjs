@@ -1,0 +1,67 @@
+<div ng-if="userCtrl.isUserDefined()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                First name :
+            </div>
+            <div class="col-sm-10">
+                {{userCtrl.user.firstname}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                Last name :
+            </div>
+            <div class="col-sm-10">
+                {{userCtrl.user.lastname}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                E-mail :
+            </div>
+            <div class="col-sm-10">
+                {{userCtrl.user.email}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                Address :
+            </div>
+            <div class="col-sm-10">
+                {{userCtrl.user.address}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                Phone number :
+            </div>
+            <div class="col-sm-4">
+                {{userCtrl.user.phoneNumber}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                Favourite menu item :
+            </div>
+            <div class="col-sm-10">
+                <div class="col-sm-5">
+                    <div class="menu-item-photo">
+                        <div>{{userCtrl.user.favouriteItem.short_name}}</div>
+                        <img class="img-responsive" width="250" height="150" ng-src="{{userCtrl.basePath}}/images/{{userCtrl.user.favouriteItem.short_name}}.jpg" alt="{{userCtrl.user.favouriteItem.name}}">
+                    </div>
+                    <div class="menu-item-price">{{userCtrl.user.favouriteItem.price_small | currency}}<span> {{userCtrl.user.favouriteItem.small_portion_name}}</span> {{userCtrl.user.favouriteItem.price_large | currency}} <span>{{userCtrl.user.favouriteItem.large_portion_name}}</span></div>
+                </div>
+                <div class="menu-item-description col-sm-5">
+                    <h3 class="menu-item-title">{{userCtrl.user.favouriteItem.name}}</h3>
+                    <p class="menu-item-details">{{userCtrl.user.favouriteItem.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="! userCtrl.isUserDefined()">
+    Not Signed Up Yet.
+    <br />
+    <a ui-sref="public.sign-up">Sign up Now!</a>
+</div>

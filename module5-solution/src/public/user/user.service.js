@@ -7,11 +7,12 @@
     // UserService.$inject = ['$http', 'ApiPath'];
     function UserService() {
         var service = this;
-        var user = {};
+        var user ;
         service.saveUser = function (aUser) {
             user = aUser;
         };
         service.getUser = function () {
+            console.log(user);
             return user;
         };
     }
