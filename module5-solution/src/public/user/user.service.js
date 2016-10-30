@@ -12,7 +12,6 @@
             user = aUser;
         };
         service.getUser = function () {
-            console.log(user);
             return user;
         };
     }

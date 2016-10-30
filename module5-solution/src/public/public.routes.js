@@ -45,14 +45,7 @@ function routeConfig ($stateProvider) {
         url: '/signup',
         templateUrl: 'src/public/user/sign-up.html',
         controller: 'SignUpController',
-        controllerAs: 'signUpCtrl',
-        resolve: {
-          oneUser: ['UserService', function(UserService){
-            console.log("here1...");
-            return UserService.getUser();
-          }]
-        }
-
+        controllerAs: 'signUpCtrl'
       })
       .state('public.my-info', {
         url: '/my-info',
@@ -61,7 +54,6 @@ function routeConfig ($stateProvider) {
         controllerAs: 'userCtrl',
         resolve: {
           user: ['UserService', function(UserService){
-            console.log("here2...");
             return UserService.getUser();
           }]
         }

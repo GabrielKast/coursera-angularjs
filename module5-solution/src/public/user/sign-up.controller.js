@@ -4,10 +4,10 @@
     angular.module('public')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ["MenuService", "UserService"];
+    SignUpController.$inject = ['MenuService', 'UserService'];
     function SignUpController(MenuService, UserService) {
         var $ctrl = this;
-        var u=UserService.getUser();
+        var u = UserService.getUser();
         if (u==undefined) {
             $ctrl.user = {};
             $ctrl.favouriteItemShortName="";
@@ -32,10 +32,8 @@
             } else {
                 MenuService.getMenuItem($ctrl.favouriteItemShortName).then(function(response){
                     $ctrl.favouriteItemError = false;
-                    console.log(response);
                     $ctrl.user.favouriteItem = response;
                 },function(err){
-                    console.log("error", err);
                     $ctrl.favouriteItemError = true;
                 })
             }
