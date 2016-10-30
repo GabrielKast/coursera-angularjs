@@ -98,6 +98,7 @@
                        class="form-control"
                        placeholder="Enter your favourite item"
                        ng-model="ctrl.favouriteItemShortName"
+                       ng-blur="ctrl.checkFavourite()"
                        novalidate>
             </div>
               <span ng-if="ctrl.favouriteItemError">
